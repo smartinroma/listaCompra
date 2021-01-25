@@ -1,0 +1,19 @@
+<h5>LISTA</h5>
+<div class="productos">
+    <div class="producto" *ngFor="let prod of productos; let indice = index">
+        <p>{{prod.nombre}} - {{prod.unidades}} unidades</p>
+        <button class="btn" (click)="onClick(indice)"
+            [ngClass]="{'btn-danger': comprados, 'btn-dark': !comprados}">{{comprados ? 'Eliminar' : 'Comprar'}}</button>
+        <!-- <input type="text" [value]="comprados ? 'Eliminar' : 'Comprar'" (click)="onClick(indice)" /> -->
+        <!-- boton para mandar el producto de un array al otro, es decir del array productosAcomprar al array producosComprados -->
+        <!-- Mostrar una imagen dependiendo del departamento - ngSwitch -->
+        <!-- <img src="assets/images/NOMBRE.png" alt=""> -->
+        <img src="assets/images/{{prod.departamento}}.png" width="50">
+        <!-- otra forma de hacerlo es con un switch -->
+        <!-- <div [ngSwitch]="prod.departamento">
+            <img src="assets/images/fruteria.png" *ngSwitchCase="'fruteria'" width="50">
+            <img src="assets/images/hogar.png" *ngSwitchCase="'hogar'" width="50">
+            <img src="assets/images/panaderia.png" *ngSwitchCase="'panaderia'" width="50">
+        </div>  -->
+    </div>
+</div>
